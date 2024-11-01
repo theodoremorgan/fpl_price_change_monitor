@@ -2,9 +2,6 @@ import requests, json
 import pandas as pd
 from config import fantasy_base_url
 
-r = requests.get(fantasy_base_url + 'bootstrap-static/').json()
-players = r['elements']
-
 def find_fpl_id(web_name:str):
     r = requests.get(fantasy_base_url + 'bootstrap-static/').json()
     player_data = r['elements']
@@ -21,7 +18,7 @@ def find_player_by_web_name(data, name: str):
     if len(matches_df) > 1:
         raise Exception(f"multiple matches found, please specify. \n {matches_df['web_name'].tolist()}")
     elif len(matches_df) == 0:
-        return None
+        raise Exception("no player found")
     
     name_and_id = {
         "web_name": matches_df['web_name'][0],
