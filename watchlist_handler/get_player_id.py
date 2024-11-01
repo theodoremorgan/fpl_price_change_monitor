@@ -4,15 +4,9 @@ import requests
 # returns
 # players in 'elements' - a dict of elements with numeric keys
 # player id can be found in each dict - seems to equal the key + 1
+# 
+# first_name and last_name is there too
 
-# transfers_in
-# transfers_in_event
-# transfers_out
-# transfers_out_event
 
-# cost_change_event (net change this week? this day?)
-# cost_change_event_fall (negative of above)
-# cost_change_start (net change from start)
-# cost_change_start_fall (negative of above)
-
-# now_cost
+# 1. create fuzzy matching function for first and second name; to match with the first_name and seccond_named fields in 'element' from the bootstrap-static call 
+# need to give a fuzzy match for first / second name (because of accents etc.)
