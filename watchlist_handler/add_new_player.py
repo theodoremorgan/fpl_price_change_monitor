@@ -3,6 +3,8 @@ import os
 from datetime import date
 from config import (data_dir_path, watchlist_dir, date_format)
 
+today = date.today()
+watchlist_file_name = today.strftime(date_format) + '_watchlist' 
 
 def add_player_to_list(id: str):
     today = date.today()
@@ -26,8 +28,9 @@ def add_player_to_list(id: str):
         json.dump(data, file)
     
 
-
+"""
 add_player_to_list(1)
 add_player_to_list(2)
 add_player_to_list(3)
 add_player_to_list(2)
+"""
